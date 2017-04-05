@@ -1,0 +1,22 @@
+/etc/init.d/nginx restart        重启nginx服务        service nginx restart
+/etc/init.d/mysqld start         重启mysql服务
+/etc/init.d/php-fpm start        重启php服务
+/etc/init.d/crond restart        重启crond服务
+ 
+chkconfig --list |grep mysqld    检查自启状态
+chkconfig --list |grep php-fpm
+chkconfig --list |grep nginx
+chkconfig --level 2345 nginx on  设置自启状态
+
+crontab -e                       脚本服务设置
+crontab -l                       脚本服务列表查看
+
+
+
+https://github.com/hanwujunlc/tvdoctor_webserv.git  代码git地址
+https://github.com/hanwujunlc/tvdoctor_bin    bin地址
+
+http://proj.skyoss.com:8090/pages/viewpage.action?pageId=4948494  消息中心查询接口
+http://proj.skyoss.com:8090/pages/viewpage.action?pageId=1775156  消息中心推送接口
+
+

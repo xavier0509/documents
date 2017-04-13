@@ -706,6 +706,13 @@ CoocaaOSApi.prototype.purchaseOrder = function(appcode,tradeid,productname,produ
 }
 
 /*******************************************cordova 2.0新增***********************************************/
+//启动集成到webSDK内部的支付页面----------即2.2.3（含）"versionCode">=2020003以上使用
+CoocaaOSApi.prototype.purchaseOrder2 = function(appcode,Tradeid,ProductName,SpecialType,amount,ProductType,payAction,cmd,success,error){
+    argscheck.checkArgs('ssssnsssff','CoocaaOSApi.purchaseOrder',arguments);
+    exec(success,error,'CoocaaOSApi','purchaseOrder',[{'appcode':appcode},{'Tradeid':Tradeid},{'ProductName':ProductName},{'SpecialType':SpecialType},{'amount':amount},{'ProductType':ProductType},{'payAction':payAction},{'cmd':cmd}]);
+}
+
+
 /*获取影视app版本*/
 CoocaaOSApi.prototype.getMoviePlatformInfo = function(success,error){
     console.log("lxw "+ "getMoviePlatformInfo in coocaaosapi.js");
@@ -743,7 +750,10 @@ CoocaaOSApi.prototype.notifyJSMessage = function(mywebinfo,success,error){
     exec(success,error,'CoocaaOSApi','notifyJSMessage',[{'webInfo':mywebinfo}]);
 }
 
-/*日志消息上传*/
+/*日志消息上传*/    
+//页面启动eventId = page_onResume              map:{"title":""}
+//页面退出eventId = page_onPause               map:{"title":""}两者title必须保持一致，不可缺省
+
 CoocaaOSApi.prototype.notifyJSLogInfo = function(eventId,ddata,success,error){
     console.log("sent------------"+eventId+"-------------"+ddata);
     argscheck.checkArgs('ssff','CoocaaOSApi.notifyJSLogInfo',arguments);

@@ -712,6 +712,12 @@ CoocaaOSApi.prototype.purchaseOrder2 = function(appcode,Tradeid,ProductName,Spec
     exec(success,error,'CoocaaOSApi','purchaseOrder',[{'appcode':appcode},{'Tradeid':Tradeid},{'ProductName':ProductName},{'SpecialType':SpecialType},{'amount':amount},{'ProductType':ProductType},{'payAction':payAction},{'cmd':cmd}]);
 }
 
+//启动影视支付（用于自动续费）
+CoocaaOSApi.prototype.startMoviePay = function(success,error){
+    argscheck.checkArgs('ff','CoocaaOSApi.startMoviePay',arguments);
+    startapp.start([["action", "coocaa.intent.movie.pay"],[{"cmd":"login"}]], success,error);
+}
+
 
 /*获取影视app版本*/
 CoocaaOSApi.prototype.getMoviePlatformInfo = function(success,error){

@@ -1,0 +1,51 @@
+v2版本接口 
+
+一、机芯机型管理页
+1、机芯管理相关接口
+   机芯增加  /fybv2_apiipAdd      参数形式 {"data":{"name":"YYYY"}}
+   机芯删除  /fybv2_apiipDelete   参数形式  {"data":{"condition":{"name":"123"}}}
+   机芯查询  /fybv2_apiipQuery   
+   机芯更新  /fybv2_apiipUpdate   参数形式  {{"data":{"_id":"5897db38bb19fe625ddb68bf","update":{"old":"XXX","newer":"XX"}}} 
+2、机型管理相关接口
+   机型增加  /fybv2_api/modelAdd     参数形式 {"data":{"name":"YYYY"}}
+   机型删除  /fybv2_api/modelDelete  参数形式  {"data":{"condition":{"name":"123"}}}
+   机型查询  /fybv2_apiipQuery   
+   机型更新  /fybv2_api/modelUpdate  参数形式  {{"data":{"_id":"5897db38bb19fe625ddb68bf","update":{"old":"XXX","newer":"XX"}}}  
+3、芯片型号管理相关接口////////////////////
+   新增芯片型号      /fybv2_api/chipModelAdd
+         {"data":{"name":"YYYY"}}
+
+   删除芯片型号      /fybv2_api/chipModelDelete
+         {"data":{"condition":{"name":"123"}}}
+
+   查询芯片型号      /fybv2_api/chipModelQuery
+
+/fybv2_api/chipModelUpdate
+{"data":{"_id":"5897db38bb19fe625ddb68bf","update":{"old":"XXX","newer":"XX"}}}
+
+二、模块管理页
+1、模块查询 /fybv2_api/moduleQuery  
+2、模块增加 /fybv2_api/moduleAdd     参数形式  {"data":{"cnName":"广告服务","engName": "SkyPushService","gitPath": "/System/APP/SkyADService","desc": "1234","category": "Service"}}
+3、模块删除 /fybv2_api/moduleDelete
+4、模块更新 /fybv2_api/moduleUpdate  参数形式  {"data":{"_id":"5896f88dbd1da5559da02dbe","update":{"desc":"11"}}}
+
+三、配置管理页
+1、配置查询 /fybv2_api/configQuery  
+2、配置增加 /fybv2_api/configAdd     参数形式  {"data":{"cnName":"22","engName": "22","configKey": "22","type": "22","desc": "22","category": "22","value": "22","options": []}}
+3、配置删除 /fybv2_api/configDelete
+4、配置更新 /fybv2_api/configUpdate  参数形式  {"data":{"_id":"5896f88dbd1da5559da02dbe","update":{"desc":"11"}}}
+
+
+四、配置文件管理页
+1、查询按钮查询 /fybv2_api/productRegexQuery  参数形式  {"data":{"condition":{"chip":"X","model":"6A"},"option":{"chip":1,"model":1}}}
+2、单项查询 /fybv2_api/productQuery    参数形式  {"data":{"condition":{"chip":"8A22"},"option":{"chip":1,"model":1}}}
+     {"data":{"condition":{"$or":[{"chip":"8S61"},{"model":"G6A"}]},"option":{"chip":1,"model":1}}}
+3、编辑与删除（实则是更新数据状态）/fybv2_api/productUpdate   参数形式   {"data":{"condition":{"chip":"8S61","model":"A43"},"action":"set","update":{"desc":"fan ni da ye"}}}
+4、新增 /fybv2_api/productAdd   参数形式  {"data":{"XX":"XX","YY":"YY","ZZ":"ZZ"}}
+5、批量修改  /fybv2_api/productUpdate  参数形式  删除 {"data":{"condition":{},"action":"unset","update":{"mkFile.5896f88dbd1da5559da02dbe":1}}}
+
+五、查询用户接口
+/fybv2_api/userQuery        参数  {"data":{"condition":{"userName":"fanyanbo"}}}
+
+六、发送邮件
+/fybv2_api/sendmail    参数 {"data":{"desc":"","from":"fanyanbo@skyworth.com","to":"","subject":"软件配置平台通知-自动发送，请勿回复"}}

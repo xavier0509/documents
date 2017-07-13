@@ -1694,6 +1694,7 @@ function onMessageFromNative(msg) {
         // Button events
         case 'backbutton':
         case 'homebutton':
+	case 'backbuttondown':
         case 'menubutton':
         case 'searchbutton':
         // App life cycle events

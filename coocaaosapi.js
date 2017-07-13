@@ -706,7 +706,7 @@ CoocaaOSApi.prototype.purchaseOrder = function(appcode,tradeid,productname,produ
 }
 
 /*******************************************cordova 2.0新增***********************************************/
-//启动集成到webSDK内部的支付页面----------即2.2.3（含）"versionCode">=2020003以上使用
+//启动集成到webSDK内部的支付页面----------即2.2.3（含）"versionCode">=2020003以上使用  com.webviewsdk.action.pay   pay
 CoocaaOSApi.prototype.purchaseOrder2 = function(appcode,Tradeid,ProductName,SpecialType,amount,ProductType,payAction,cmd,success,error){
     argscheck.checkArgs('ssssnsssff','CoocaaOSApi.purchaseOrder',arguments);
     exec(success,error,'CoocaaOSApi','purchaseOrder',[{'appcode':appcode},{'Tradeid':Tradeid},{'ProductName':ProductName},{'SpecialType':SpecialType},{'amount':amount},{'ProductType':ProductType},{'payAction':payAction},{'cmd':cmd}]);
@@ -807,7 +807,36 @@ CoocaaOSApi.prototype.startAppShopBUYING = function(id,success,error){
     argscheck.checkArgs('sff','CoocaaOSApi.startAppShopBUYING',arguments);
     startapp.start([["action", "coocaa.intent.action.MALL_BUYING"],[{"id":id}]], success,error);
 }
+//启动影视内部webview
+CoocaaOSApi.prototype.startMovieWebview = function(url,success,error){
+    argscheck.checkArgs('sff','CoocaaOSApi.startMovieWebview',arguments);
+    startapp.start([["action", "coocaa.intent.movie.webview"],[{"url":url}]], success,error);
+}
 
+//启动影视内部web页面
+CoocaaOSApi.prototype.startMovieWebviewInsert = function(url,success,error){
+    argscheck.checkArgs('sff','CoocaaOSApi.startMovieWebviewInsert',arguments);
+    startapp.start([["action", "coocaa.intent.movie.webview"],[{"url":url}]], success,error);
+}
+
+//启动影视一级页面
+CoocaaOSApi.prototype.startMovieWebviewOnePage = function(url,success,error){
+    argscheck.checkArgs('sff','CoocaaOSApi.startMovieWebviewOnePage',arguments);
+    startapp.start([["action", "coocaa.intent.vip.center"],[{"url":url}]], success,error);
+}
+
+//启动影视二级页面
+CoocaaOSApi.prototype.startMovieWebviewTwoPage = function(url,success,error){
+    argscheck.checkArgs('sff','CoocaaOSApi.startMovieWebviewTwoPage',arguments);
+    startapp.start([["action", "coocaa.intent.vip.center.second"],[{"url":url}]], success,error);
+}
+
+
+//启动影视会员中心---会员卡激活
+    CoocaaOSApi.prototype.startNormalAction = function(url,success,error){
+        argscheck.checkArgs('sff','CoocaaOSApi.startNormalAction',arguments);
+        startapp.start([["action", "coocaa.intent.vip.center.card"],[{"appcode":url}]], success,error);
+    }
 
    module.exports = new CoocaaOSApi();
 });
